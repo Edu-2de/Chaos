@@ -25,7 +25,7 @@ class Sku(BaseModel):
             ),
             models.CheckConstraint(
                 name="sku_promotional_price_lower_than_price",
-                condition=Q(promotional_price__isnul=True)
+                condition=Q(promotional_price__isnull=True)
                 | Q(promotional_price__lt=F("price")),
                 violation_error_message="Promotional price cannot be greater than or equal to price",
             ),

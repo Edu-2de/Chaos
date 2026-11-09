@@ -1,4 +1,5 @@
 import pytest
+from django.db.utils import IntegrityError
 from rest_framework.test import APIRequestFactory
 
 from products.models import Category
@@ -23,7 +24,7 @@ def test_list_categories_return_success():
 
 
 @pytest.mark.django_db
-def test_create_duplicate_category_not_allowed():
+def test_create_duplicate_category_return_fail():
     Category.objects.create(name="category1")
 
     factory = APIRequestFactory()
@@ -35,3 +36,11 @@ def test_create_duplicate_category_not_allowed():
 
     assert response.status_code == 400
     assert "name" in response.data
+
+
+@pytest.mark.django_db
+def test_create_duplicate_category_lower_return_fail():
+    Category.objects.create(name="category1")
+
+    with pytest.raises(IntegrityError):
+        Category.objects.create(name="Category1")

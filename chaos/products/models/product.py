@@ -3,13 +3,15 @@ from django.db import models
 
 
 class Product(BaseModel):
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=255)
     category = models.ForeignKey(
         "Category", on_delete=models.PROTECT, related_name="products"
     )
     type = models.ForeignKey("Type", on_delete=models.PROTECT, related_name="products")
-    brand = models.ForeignKey("Brand", on_delete=models.PROTECT)
+    brand = models.ForeignKey(
+        "Brand", on_delete=models.PROTECT, related_name="products"
+    )
 
     class Meta(BaseModel.Meta):
         verbose_name = "Product"

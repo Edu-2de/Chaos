@@ -1,5 +1,6 @@
 from core.models import BaseModel
 from django.db import models
+from django.db.models.functions import Lower
 
 
 class Brand(BaseModel):
@@ -8,6 +9,13 @@ class Brand(BaseModel):
     class Meta(BaseModel.Meta):
         verbose_name = "Brand"
         verbose_name_plural = "Brands"
+        constraints = (
+            models.UniqueConstraint(
+                Lower("name"),
+                name="brand_unique_name",
+                violation_error_message="This brand already exists",
+            ),
+        )
 
     def __str__(self) -> str:
         return f"{self.name}"
