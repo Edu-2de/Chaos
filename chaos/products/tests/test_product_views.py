@@ -1,15 +1,15 @@
 import pytest
-from django.db.utils import IntegrityError
 from rest_framework.test import APIRequestFactory
 
-from products.models import Product
 from products.views import ProductViewSet
+
+from .factories import ProductFactory
 
 
 @pytest.mark.django_db
-def list_colors_return_success():
-    Product.objects.create(name="Product1")
-    Product.objects.create(name="Product2")
+def test_list_products_return_success():
+    product = ProductFactory()
+    ProductFactory()
 
     factory = APIRequestFactory()
     request = factory.get("/fake-url/")
@@ -20,4 +20,4 @@ def list_colors_return_success():
 
     assert response.status_code == 200
     assert len(response.data) == 2
-    assert response.data[0]["name"] == "Product1"
+    assert response.data[0]["name"] == product.name

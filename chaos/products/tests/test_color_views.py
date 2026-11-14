@@ -7,7 +7,7 @@ from products.views import ColorViewSet
 
 
 @pytest.mark.django_db
-def list_colors_return_success():
+def test_list_colors_return_success():
     Color.objects.create(name="Color1")
     Color.objects.create(name="Color2")
 
@@ -24,7 +24,7 @@ def list_colors_return_success():
 
 
 @pytest.mark.django_db
-def create_duplicate_return_fail():
+def test_create_duplicate_return_fail():
     Color.objects.create(name="Color1")
 
     factory = APIRequestFactory()
@@ -43,4 +43,4 @@ def test_create_duplicate_color_lower_return_fail():
     Color.objects.create(name="Color1")
 
     with pytest.raises(IntegrityError):
-        Color.objects.create(name="Color1")
+        Color.objects.create(name="color1")

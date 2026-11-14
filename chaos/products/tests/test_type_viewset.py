@@ -24,7 +24,7 @@ def test_list_types_return_success():
 
 
 @pytest.mark.django_db
-def test_create_duplicate_return_fail():
+def test_create_duplicate_type_return_fail():
     Type.objects.create(name="Type")
 
     factory = APIRequestFactory()
@@ -39,7 +39,7 @@ def test_create_duplicate_return_fail():
 
 
 @pytest.mark.django_db
-def test_create_duplicate_lower_return_fail():
+def test_create_duplicate_type_lower_return_fail():
     Type.objects.create(name="Type")
 
     with pytest.raises(IntegrityError):
