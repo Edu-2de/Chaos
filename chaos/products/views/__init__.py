@@ -1,6 +1,7 @@
 from .brand_viewset import BrandViewSet as BrandViewSet
 from .brand_viewset import BrandViewSetWithParams as BrandViewSetWithParams
 from .category_viewset import CategoryViewSet as CategoryViewSet
+from .category_viewset import CategoryViewSetWithParams as CategoryViewSetWithParams
 from .color_viewset import ColorViewSet as ColorViewSet
 from .product_viewset import ProductViewSet as ProductViewSet
 from .size_viewset import SizeViewSet as SizeViewSet
