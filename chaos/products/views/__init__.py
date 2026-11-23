@@ -5,6 +5,7 @@ from .category_viewset import CategoryViewSetWithParams as CategoryViewSetWithPa
 from .color_viewset import ColorViewSet as ColorViewSet
 from .color_viewset import ColorViewSetWithParams as ColorViewSetWithParams
 from .product_viewset import ProductViewSet as ProductViewSet
+from .product_viewset import ProductViewSetWithParams as ProductViewSetWithParams
 from .size_viewset import SizeViewSet as SizeViewSet
 from .size_viewset import SizeViewSetWithParams as SizeViewSetWithParams
 from .sku_viewset import SkuViewSet as SkuViewSet
