@@ -47,6 +47,6 @@ class CategoryViewSetWithParams(APIView):
         category = get_object_or_404(Category, pk=pk)
         serializer = CategorySerializer(category, data=request.data, partial=True)
         if not serializer.is_valid():
-            Response(serializer.errors, status=400)
+            return Response(serializer.errors, status=400)
         serializer.save()
         return Response(serializer.data, status=200)
