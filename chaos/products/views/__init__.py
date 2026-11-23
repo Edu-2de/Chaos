@@ -3,6 +3,7 @@ from .brand_viewset import BrandViewSetWithParams as BrandViewSetWithParams
 from .category_viewset import CategoryViewSet as CategoryViewSet
 from .category_viewset import CategoryViewSetWithParams as CategoryViewSetWithParams
 from .color_viewset import ColorViewSet as ColorViewSet
+from .color_viewset import ColorViewSetWithParams as ColorViewSetWithParams
 from .product_viewset import ProductViewSet as ProductViewSet
 from .size_viewset import SizeViewSet as SizeViewSet
 from .sku_viewset import SkuViewSet as SkuViewSet
